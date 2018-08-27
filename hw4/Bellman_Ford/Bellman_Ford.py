@@ -2,9 +2,9 @@ class bellman_ford_prob(object):
     
     def __init__(self, file_name):
         self.graph = None
-        self.read_txt_file(file_name)
+        self.build_graph(file_name)
 
-    def read_txt_file(self, file_name):
+    def build_graph(self, file_name):
         text_file = open(file_name, "r")
         raw_list = text_file.read().split('\n')
         graph = {}
