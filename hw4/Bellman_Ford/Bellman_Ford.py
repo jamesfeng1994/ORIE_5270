@@ -40,7 +40,7 @@ class bellman_ford_prob(object):
                     return True, result
         return False, result
 
-    def get_negative_circles(self, result):
+    def get_neg_circles(self, result):
         visited = []
         for starting_points in result.keys():
             if starting_points in visited:
@@ -56,15 +56,15 @@ class bellman_ford_prob(object):
                     first_index = path.index(current_points)
                     return path[first_index:]
 
-    def find_negative_cicles(self):
+    def find_neg_cicles(self):
         neg_circle, result = self.bellman_ford('0')
         if neg_circle:
-            path = self.get_negative_circles(result)
+            path = self.get_neg_circles(result)
             return '->'.join(path[::-1])
         else:
             return "No negative circle"
 
 if __name__ == '__main__':
     bf = bellman_ford_prob('graph1.txt')
-    print(bf.find_negative_cicles())
+    print(bf.find_neg_cicles())
     #should be like '1->2->3->4->1'
